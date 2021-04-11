@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * 如果一个对象比较的复杂，那么就可以通过一个factory来进行创建
+ */
 @Service
 public class LeaveFactory {
 
