@@ -17,6 +17,9 @@ public class Approver {
     String personName;
     int level;
 
+    /**
+     * 根据 person 创建  approver
+     */
     public static Approver fromPerson(Person person){
         Approver approver = new Approver();
         approver.setPersonId(person.getPersonId());

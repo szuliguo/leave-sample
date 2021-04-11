@@ -29,10 +29,15 @@ public class LeaveDomainService {
 
     @Transactional
     public void createLeave(Leave leave, int leaderMaxLevel, Approver approver) {
+        // create leave
         leave.setLeaderMaxLevel(leaderMaxLevel);
         leave.setApprover(approver);
         leave.create();
+
+        // 保存 leave
         leaveRepositoryInterface.save(leaveFactory.createLeavePO(leave));
+
+        // 发布事件
         LeaveEvent event = LeaveEvent.create(LeaveEventType.CREATE_EVENT, leave);
         leaveRepositoryInterface.saveEvent(leaveFactory.createLeaveEventPO(event));
         eventPublisher.publish(event);

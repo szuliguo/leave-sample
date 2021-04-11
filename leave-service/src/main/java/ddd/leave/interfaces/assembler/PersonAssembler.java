@@ -8,6 +8,12 @@ import ddd.leave.interfaces.dto.PersonDTO;
 
 import java.text.ParseException;
 
+
+/**
+ * dto 对象和 领域对象之间的转换
+ * 此处的 persionDto 对象可以理解为 VO对象
+ * 也就是领域对象和VO对象之间的转换
+ */
 public class PersonAssembler {
 
     public static PersonDTO toDTO(Person person){
